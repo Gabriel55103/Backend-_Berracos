@@ -1,0 +1,33 @@
+package com.backend.berracos.models;
+
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.math.BigDecimal;
+
+@Data
+@NoArgsConstructor
+@Entity
+@Table(name = "cortes")
+public class Corte {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long idCorte;
+
+    @Column(nullable = false, unique = true, length = 100)
+    private String nombre;
+
+    @Column(nullable = false, length = 500)
+    private String descripcion;
+
+    @Column(nullable = false, precision = 10, scale = 2)
+    private BigDecimal precio;
+
+    @Column(length = 500)
+    private String imagen;
+
+    @Column(nullable = false)
+    private Boolean activo = true;
+}
